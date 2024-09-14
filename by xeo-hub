@@ -1,0 +1,1054 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+local Window = Fluent:CreateWindow({
+    Title = "Xeo HuB",
+    SubTitle = "Race Clicker",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Theme = "Amethyst",
+    MinimizeKey = Enum.KeyCode.LeftControl-- Used when theres no MinimizeKeybind
+})
+
+--Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main", Icon = "rbxassetid://10723407389" }),
+    Car = Window:AddTab({ Title = "Car", Icon = "rbxassetid://10709789810" }),
+    Pet = Window:AddTab({ Title = "Pet", Icon = "rbxassetid://10723345518" }),
+    Teleport = Window:AddTab({ Title = "TP", Icon = "rbxassetid://10723344270" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "rbxassetid://10734950020" })
+}
+
+local Options = Fluent.Options
+
+do  
+    Fluent:Notify({
+        Title = "Hi User",
+        Content = "Welcome to Xeo-HuB",
+        SubContent = "", -- Optional
+        Duration = 5 -- Set to nil to make the notification not disappear
+    })
+
+
+
+    Tabs.Main:AddParagraph({
+        Title = "Xeo-HuB",
+        Content = "Hi User!"
+    })
+
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Home",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            local args = {
+    [1] = "Home",
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Event",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            local args = {
+    [1] = "Event",
+    [2] = false,
+    [3] = "Event"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Ocean",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            local args = {
+    [1] = "Ocean",
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Space",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                         local args = {
+    [1] = "Space",
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+   
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Candy",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            local args = {
+    [1] = "Candy",
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Hell",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            local args = {
+    [1] = "Hell",
+    [2] = false
+}
+    
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Pirate",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            local args = {
+    [1] = "Pirate",
+    [2] = false
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Castle",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            local args = {
+        [1] = "Castle",
+        [2] = false
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Robot",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            local args = {
+    [1] = "Robot",
+    [2] = false
+}
+    
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Forest",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                             local args = {
+     [1] = "Forest",
+     [2] = false
+ }
+ 
+ game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Circus",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            local args = {
+        [1] = "Circus",
+        [2] = false
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Teleport:AddButton({
+        Title = "TP To Nuclear",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                                local args = {
+        [1] = "Nuclear",
+        [2] = false
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("WorldService"):WaitForChild("RF"):WaitForChild("Travel"):InvokeServer(unpack(args))
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Main:AddButton({
+        Title = "SpinWheel",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("SpinWheelService"):WaitForChild("RF"):WaitForChild("SpinUIWheel"):InvokeServer()
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Main:AddButton({
+        Title = "EquipBest-Pet",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PetsService"):WaitForChild("RF"):WaitForChild("EquipBest"):InvokeServer()
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Main:AddButton({
+        Title = "CraftAll-Pet",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("PetsService"):WaitForChild("RF"):WaitForChild("CraftAll"):InvokeServer()
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Pro01",
+    [2] = "Auto",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     	local args = {
+    [1] = "Pro02",
+    [2] = "Auto",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     	local args = {
+    [1] = "Pro03",
+    [2] = "Auto",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Spring Egg",
+    [2] = "1",
+    [3] = {
+        ["Fierce Fox"] = true
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Pro03",
+    [2] = "1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Pro04",
+    [2] = "1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Space01",
+    [2] = "1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Ocean01",
+    [2] = "1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Candy01",
+    [2] = "1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Hell01",
+    [2] = "1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+
+
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Pirate01",
+    [2] = "1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Castle01",
+    [2] = "1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Robot01",
+    [2] = "1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Forest01",
+    [2] = "1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Pet:AddButton({
+        Title = "Open-",
+        Description = " Click button",
+        Callback = function()
+            Window:Dialog({
+                Title = "Sure",
+                Content = "",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                     local args = {
+    [1] = "Circus01",
+    [2] = "1",
+    [3] = {}
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("EggService"):WaitForChild("RF"):WaitForChild("Open"):InvokeServer(unpack(args))
+                end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+   local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Auto-Farm", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AU = Value
+        while _G.AU do wait (6.5)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-443551.46875, 3.7921993732452393, 0)
+        end
+end)
+
+    Options.MyToggle:SetValue(false)
+
+local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Auto-Work", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AU = Value
+        while _G.AU do wait (0.2)
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,119,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+        end
+end)
+
+    Options.MyToggle:SetValue(false)
+
+local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Auto-Click", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AU = Value
+        while _G.AU do wait (0.1)
+      game:GetService("ReplicatedStorage").Packages.Knit.Services.ClickService.RF.Click:InvokeServer()
+        end
+end)
+
+    Options.MyToggle:SetValue(false)
+
+local Toggle = Tabs.Main:AddToggle("MyToggle", {Title = "Auto-Rebirh", Default = false })
+
+    Toggle:OnChanged(function(Value)
+        _G.AU = Value
+        while _G.AU do wait ()
+     game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("Knit"):WaitForChild("Services"):WaitForChild("RebirthService"):WaitForChild("RF"):WaitForChild("Rebirth"):InvokeServer()
+        end
+end)
+
+    Options.MyToggle:SetValue(false)
+
+
+
+
+
+ local Input = Tabs.Main:AddInput("Input", {
+        Title = "Input",
+        Default = "Default",
+        Placeholder = "Placeholder",
+        Numeric = false, -- Only allows numbers
+        Finished = false, -- Only calls callback when you press enter
+        Callback = function(Value)
+            print("Input changed:", Value)
+        end
+    })
+
+    Input:OnChanged(function()
+        print("Input updated:", Input.Value)
+    end)
+end
+
+
+-- Addons:
+-- SaveManager (Allows you to have a configuration system)
+-- InterfaceManager (Allows you to have a interface managment system)
+
+-- Hand the library over to our managers
+SaveManager:SetLibrary(Fluent)
+InterfaceManager:SetLibrary(Fluent)
+
+-- Ignore keys that are used by ThemeManager.
+-- (we dont want configs to save themes, do we?)
+SaveManager:IgnoreThemeSettings()
+
+-- You can add indexes of elements the save manager should ignore
+SaveManager:SetIgnoreIndexes({})
+
+-- use case for doing it this way:
+-- a script hub could have themes in a global folder
+-- and game configs in a separate folder per game
+InterfaceManager:SetFolder("FluentScriptHub")
+SaveManager:SetFolder("FluentScriptHub/specific-game")
+
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+
+
+Window:SelectTab(1)
+
+Fluent:Notify({
+    Title = "wait loader",
+    Content = "loader succeed.",
+    Duration = 5
+})
+
+SaveManager:LoadAutoloadConfig()
